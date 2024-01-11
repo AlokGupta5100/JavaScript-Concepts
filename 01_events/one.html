@@ -13,7 +13,7 @@
           <img
             width="200px"
             height="200px"
-            id="photos"
+            id="women"
             src="https://images.pexels.com/photos/19795127/pexels-photo-19795127/free-photo-of-a-woman-in-a-suit-and-white-shirt-standing-in-the-park.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load    "
             alt="pictures"
           />
@@ -55,7 +55,7 @@
           />
         </li>
         <li>
-          <a href="www.google.com" id="google" style="color: aliceblue;"
+          <a href="https://google.com" id="google" style="color: aliceblue;"
             >Google</a
           >
         </li>
@@ -66,11 +66,38 @@
     // document.getElementById('photos').onclick = function(){
     //   alert("Hi,this is event")
     // }
-    
+
     // attachEvent()
     //JQuery-on
-    document.getElementById('photos').addEventListener('click', function(){
-      alert("hi")
-    })
+
+    // document.getElementById('photos').addEventListener('click', function(e){
+    //  console.log(e);
+    // }, false)
+
+    // document.getElementById('images').addEventListener('click', function(e){
+    //  console.log("clicked inside UL");
+    // }, false)
+
+    // document.getElementById('women').addEventListener('click', function(e){
+    //  console.log("women clicked");
+    //  e.stopPropagation()
+    // }, false)
+
+    // document.getElementById('google').addEventListener('click', function(e){
+    //  console.log('google clicked')
+    //   e.preventDefault()
+    //   e.stopImmediatePropagation()
+    // })
+
+    document.querySelector("#images").addEventListener("click", function (e) {
+      console.log(e.target.tagName);
+      if (e.target.tagName === "IMG") {
+        console.log(e.target.id);
+        let rem = e.target.parentNode;
+        rem.remove();
+      }
+
+      // rem.parentNode.removeChild(rem)
+    });
   </script>
 </html>
