@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event</title>
+  </head>
+
+  <body>
+    <h1>SET_TIMEOUT</h1>
+    <button id="click">Click</button>
+  </body>
+  <script>
+    setTimeout(function () {
+      console.log("Alok");
+    }, 2000);
+
+    const sayAlok = () => {
+      console.log("Gupta");
+    };
+    setTimeout(sayAlok, 3000);
+
+    const changeText = function () {
+      document.querySelector("h1").innerHTML = "CLEAR_TIMEOUT";
+    };
+
+    const changeMe = setTimeout(changeText, 2000);
+
+    document.querySelector("#click").addEventListener("click", function () {
+      clearTimeout(changeMe);
+      console.log("STOPPED");
+    });
+    //here I am removing setTimeout event through clearTimeout after button click
+  </script>
+</html>
