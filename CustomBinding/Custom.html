@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Two-Way Binding</title>
+</head>
+<body>
+
+  <label for="inputField">Enter Text:</label>
+  <input type="text" id="inputField">
+
+  <p id="output">Output: </p>
+
+  <script>
+    // Get the input field and output element
+    const inputField = document.getElementById('inputField');
+    const outputElement = document.getElementById('output');
+
+    // Object to store data
+    const data = {
+      inputValue: ''
+    };
+
+    // Function to update the output text
+    function updateOutput() {
+      outputElement.textContent = 'Output: ' + data.inputValue;
+    }
+
+    // Event listener for input changes
+    inputField.addEventListener('input', function(event) {
+      // Update the data object when input changes
+      data.inputValue = event.target.value;
+
+      // Update the output text
+      updateOutput();
+    });
+
+    // Initial update to set the default value
+    updateOutput();
+  </script>
+
+</body>
+</html>
