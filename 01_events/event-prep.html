@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event-Practise</title>
+  </head>
+
+  <body>
+    <style>
+      div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .gfg {
+        background-color: green;
+        width: 200px;
+        height: 100px;
+      }
+
+      .shikha {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+    <h2 class="shikha">Event Bubbling & Event Capturing</h2>
+    <div>
+      <div class="gfg"></div>
+    </div>
+    <script>
+      const foo = document.querySelector(".gfg");
+      foo.addEventListener("click", (e) => {
+        console.log("NormalClassCheck");
+      });
+    </script>
+  </body>
+</html>
