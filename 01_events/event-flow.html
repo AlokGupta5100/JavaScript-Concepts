@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event-flow</title>
+  </head>
+  <body>
+    <style>
+      div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .grand {
+        background-color: green;
+        width: 400px;
+        height: 300px;
+      }
+      .parent {
+        background-color: red;
+        width: 300px;
+        height: 200px;
+      }
+      .child {
+        background-color: yellow;
+        width: 200px;
+        height: 100px;
+      }
+      .shikha {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+    <h2 class="shikha">Event Bubbling & Event Capturing</h2>
+    <div>
+      <div class="grand">
+        <div class="parent">
+          <div class="child"></div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const greenCol = document.querySelector(".grand");
+      const redCol = document.querySelector(".parent");
+      const yellowCol = document.querySelector(".child");
+
+      window.addEventListener(
+        "click",
+        (e) => {
+          console.log("1 - window printed");
+        },
+        { capture: true }
+      );
+
+      document.addEventListener(
+        "click",
+        (e) => {
+          console.log("2 - document printed");
+        },
+        { capture: true }
+      );
+
+      greenCol.addEventListener(
+        "click",
+        (e) => {
+          console.log("3 - grand container");
+        },
+        true
+      );
+
+      redCol.addEventListener(
+        "click",
+        (e) => {
+          console.log("4 - parent container");
+        },
+        true
+      );
+
+      yellowCol.addEventListener(
+        "click",
+        (e) => {
+          // e.stopPropagation();
+          console.log("5 - child container");
+        },
+        true
+      );
+
+      //{capture:true} = true means start from windows and goes upto child use for event capturing
+      //but by default capture value is false.
+      //once: true means used for event occur once.
+      //yellowCol.addEventListener('click',(e) => {
+      // e.stopPropagation();
+      //     console.log('5 - child container');
+      // },{once: true})
+    </script>
+  </body>
+</html>
